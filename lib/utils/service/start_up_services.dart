@@ -1,14 +1,14 @@
 import 'package:get/get.dart';
 
 import 'authentication_serivces.dart';
-import 'dio_services.dart';
-import 'local_storage_service.dart';
+import 'local_storage_services.dart';
+import 'path_provider_serivces.dart';
 
 class StartUpService extends GetxService {
   Future<StartUpService> init() async {
     Get.lazyPut<AuthenticationService>(() => AuthenticationService());
+    await Get.putAsync(() => PathProviderService().init());
     await LocalStorageService.init();
-    Get.put<DioService>(DioService()).init();
     return this;
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:testproject/utils/service/local_storage_service.dart';
+import 'package:testproject/utils/service/local_storage_services.dart';
 
 class AuthenticationService extends GetxService {
   Future<String?> getDeivcesToken() async {

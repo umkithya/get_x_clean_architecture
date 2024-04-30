@@ -9,9 +9,7 @@ class HomeRemoteDataSourceImpl extends IHomeRemoteDataSource {
   @override
   Future<List<ProductModel>> getProducts() async {
     final Response response =
-        await DioClient.instance.dio.get(Endpoints.products, options:Options(
-          
-        ));
+        await DioClient.instance.dio.get(Endpoints.products);
     return await compute(parseProducts, response);
   }
 
