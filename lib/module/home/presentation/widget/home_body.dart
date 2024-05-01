@@ -11,7 +11,7 @@ class HomeBody extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return controller.obx(
       (state) => RefreshIndicator(
-        onRefresh: () => controller.getProducts(),
+        onRefresh: () => controller.refreshProduct(),
         child: ListView.separated(
           itemCount: state!.length,
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -20,7 +20,7 @@ class HomeBody extends GetView<HomeController> {
           ),
           itemBuilder: (context, index) => ListTile(
             onTap: () {
-              context.push('/detail');
+              context.push('/detail?id=${state[index].id}');
             },
             title: Text("${state[index].title}"),
           ),

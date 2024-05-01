@@ -57,9 +57,9 @@ class DioLogger extends Interceptor {
       this.logPrint = print});
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     if (error) {
-      if (err.type == DioErrorType.badResponse) {
+      if (err.type == DioExceptionType.badResponse) {
         final uri = err.response?.requestOptions.uri;
         _printBoxed(
             header:

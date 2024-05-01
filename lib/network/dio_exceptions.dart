@@ -33,10 +33,10 @@ class DioExceptions implements Exception {
       case DioExceptionType.connectionError:
         debugPrint("connectionError");
         if (dioError.message!.contains("SocketException")) {
-          message = 'No Internet';
+          message = 'Please check your internet connection';
           break;
         }
-        message = "Unexpected error occurred";
+        message = 'Unexpected error occurred';
         break;
       default:
         message = "Something went wrong";
@@ -47,22 +47,22 @@ class DioExceptions implements Exception {
   @override
   String toString() => message;
 
-  String _handleError(int? statusCode, dynamic error) {
-    switch (statusCode) {
-      case 400:
-        return 'Bad request';
-      case 401:
-        return 'Unauthorized';
-      case 403:
-        return 'Forbidden';
-      case 404:
-        return '404 Not Found';
-      case 500:
-        return 'Internal server error';
-      case 502:
-        return 'Bad gateway';
-      default:
-        return 'Oops something went wrong';
-    }
-  }
+  // String _handleError(int? statusCode, dynamic error) {
+  //   switch (statusCode) {
+  //     case 400:
+  //       return 'Bad request';
+  //     case 401:
+  //       return 'Unauthorized';
+  //     case 403:
+  //       return 'Forbidden';
+  //     case 404:
+  //       return '404 Not Found';
+  //     case 500:
+  //       return 'Internal server error';
+  //     case 502:
+  //       return 'Bad gateway';
+  //     default:
+  //       return 'Oops something went wrong';
+  //   }
+  // }
 }

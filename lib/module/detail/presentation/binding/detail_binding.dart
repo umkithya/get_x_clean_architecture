@@ -18,12 +18,15 @@
 // }
 
 import 'package:get/get.dart';
+import 'package:testproject/module/home/domain/usecases/get_product_detail.dart';
 
 import '../controller/detail_controller.dart';
 
 class DetailBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<DetailController>(() => DetailController());
+    Get.lazyPut<GetProductDetailUseCase>(
+        () => GetProductDetailUseCase(Get.find()));
+    Get.lazyPut<DetailController>(() => DetailController(Get.find()));
   }
 }

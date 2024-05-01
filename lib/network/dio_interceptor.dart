@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Response;
 import 'package:testproject/network/end_point.dart';
 import 'package:testproject/utils/service/authentication_serivces.dart';
@@ -42,12 +41,6 @@ class DioInterceptor extends Interceptor {
       });
     }
     return super.onRequest(options, handler);
-  }
-
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    debugPrint("onResponse: $response");
-    return super.onResponse(response, handler);
   }
 
   Future<Response<dynamic>?> refreshToken() async {

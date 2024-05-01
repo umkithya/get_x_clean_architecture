@@ -25,6 +25,6 @@ class Endpoints {
   static const String products = '/products';
   static const String refreshToken = '/refreshToken';
   Endpoints._();
-  // static String leaveRequestTimeline(int requestId) =>
-  //     "/api/mobile/hr/pri/leave-request/$requestId/timeline";
+  static String productDetail(int? id) =>
+      "/products/$id";
 }

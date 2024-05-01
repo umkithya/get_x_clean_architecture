@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:testproject/module/home/data/model/params/product_params.dart';
 
 import '../../data/model/product_model/product_model.dart';
-import '../../domain/usecases/get_home.dart';
+import '../../domain/usecases/get_product.dart';
 
 class HomeController extends GetxController
     with StateMixin<List<ProductModel>> {
-  final GetHomeUseCase _getHomeUseCase;
+  final GetProductUseCase _getHomeUseCase;
   HomeController(this._getHomeUseCase);
 
-  Future<void> getProducts() async {
+  Future<void> getProducts({bool isRefresh = false}) async {
     change(null, status: RxStatus.loading());
 
-    final result = await _getHomeUseCase.call();
+    final result =
+        await _getHomeUseCase.call(params: ProductParams(refresh: isRefresh));
     if (result.error != null) {
       change(null, status: RxStatus.error(result.toString()));
     } else if (result.data != null) {
@@ -30,5 +32,9 @@ class HomeController extends GetxController
   void onInit() {
     super.onInit();
     getProducts();
+  }
+
+  Future<void> refreshProduct() async {
+    await getProducts(isRefresh: true);
   }
 }
