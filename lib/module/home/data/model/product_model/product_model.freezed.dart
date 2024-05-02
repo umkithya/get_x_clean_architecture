@@ -22,11 +22,12 @@ ProductModel _$ProductModelFromJson(Map<String, dynamic> json) {
 mixin _$ProductModel {
   int? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  double? get price => throw _privateConstructorUsedError;
+  int? get price => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  String? get category => throw _privateConstructorUsedError;
-  String? get image => throw _privateConstructorUsedError;
-  RatingModel? get rating => throw _privateConstructorUsedError;
+  List<String>? get images => throw _privateConstructorUsedError;
+  String? get creationAt => throw _privateConstructorUsedError;
+  String? get updatedAt => throw _privateConstructorUsedError;
+  CategoryModel? get category => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,13 +44,14 @@ abstract class $ProductModelCopyWith<$Res> {
   $Res call(
       {int? id,
       String? title,
-      double? price,
+      int? price,
       String? description,
-      String? category,
-      String? image,
-      RatingModel? rating});
+      List<String>? images,
+      String? creationAt,
+      String? updatedAt,
+      CategoryModel? category});
 
-  $RatingModelCopyWith<$Res>? get rating;
+  $CategoryModelCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -69,9 +71,10 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
     Object? title = freezed,
     Object? price = freezed,
     Object? description = freezed,
+    Object? images = freezed,
+    Object? creationAt = freezed,
+    Object? updatedAt = freezed,
     Object? category = freezed,
-    Object? image = freezed,
-    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -85,35 +88,39 @@ class _$ProductModelCopyWithImpl<$Res, $Val extends ProductModel>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      images: freezed == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      creationAt: freezed == creationAt
+          ? _value.creationAt
+          : creationAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as RatingModel?,
+              as CategoryModel?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RatingModelCopyWith<$Res>? get rating {
-    if (_value.rating == null) {
+  $CategoryModelCopyWith<$Res>? get category {
+    if (_value.category == null) {
       return null;
     }
 
-    return $RatingModelCopyWith<$Res>(_value.rating!, (value) {
-      return _then(_value.copyWith(rating: value) as $Val);
+    return $CategoryModelCopyWith<$Res>(_value.category!, (value) {
+      return _then(_value.copyWith(category: value) as $Val);
     });
   }
 }
@@ -129,14 +136,15 @@ abstract class _$$ProductModelImplCopyWith<$Res>
   $Res call(
       {int? id,
       String? title,
-      double? price,
+      int? price,
       String? description,
-      String? category,
-      String? image,
-      RatingModel? rating});
+      List<String>? images,
+      String? creationAt,
+      String? updatedAt,
+      CategoryModel? category});
 
   @override
-  $RatingModelCopyWith<$Res>? get rating;
+  $CategoryModelCopyWith<$Res>? get category;
 }
 
 /// @nodoc
@@ -154,9 +162,10 @@ class __$$ProductModelImplCopyWithImpl<$Res>
     Object? title = freezed,
     Object? price = freezed,
     Object? description = freezed,
+    Object? images = freezed,
+    Object? creationAt = freezed,
+    Object? updatedAt = freezed,
     Object? category = freezed,
-    Object? image = freezed,
-    Object? rating = freezed,
   }) {
     return _then(_$ProductModelImpl(
       id: freezed == id
@@ -170,23 +179,27 @@ class __$$ProductModelImplCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as int?,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      images: freezed == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      creationAt: freezed == creationAt
+          ? _value.creationAt
+          : creationAt // ignore: cast_nullable_to_non_nullable
+              as String?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as String?,
       category: freezed == category
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
-              as String?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as String?,
-      rating: freezed == rating
-          ? _value.rating
-          : rating // ignore: cast_nullable_to_non_nullable
-              as RatingModel?,
+              as CategoryModel?,
     ));
   }
 }
@@ -199,9 +212,11 @@ class _$ProductModelImpl implements _ProductModel {
       this.title,
       this.price,
       this.description,
-      this.category,
-      this.image,
-      this.rating});
+      final List<String>? images,
+      this.creationAt,
+      this.updatedAt,
+      this.category})
+      : _images = images;
 
   factory _$ProductModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductModelImplFromJson(json);
@@ -211,19 +226,29 @@ class _$ProductModelImpl implements _ProductModel {
   @override
   final String? title;
   @override
-  final double? price;
+  final int? price;
   @override
   final String? description;
+  final List<String>? _images;
   @override
-  final String? category;
+  List<String>? get images {
+    final value = _images;
+    if (value == null) return null;
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
-  final String? image;
+  final String? creationAt;
   @override
-  final RatingModel? rating;
+  final String? updatedAt;
+  @override
+  final CategoryModel? category;
 
   @override
   String toString() {
-    return 'ProductModel(id: $id, title: $title, price: $price, description: $description, category: $category, image: $image, rating: $rating)';
+    return 'ProductModel(id: $id, title: $title, price: $price, description: $description, images: $images, creationAt: $creationAt, updatedAt: $updatedAt, category: $category)';
   }
 
   @override
@@ -236,16 +261,27 @@ class _$ProductModelImpl implements _ProductModel {
             (identical(other.price, price) || other.price == price) &&
             (identical(other.description, description) ||
                 other.description == description) &&
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            (identical(other.creationAt, creationAt) ||
+                other.creationAt == creationAt) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.category, category) ||
-                other.category == category) &&
-            (identical(other.image, image) || other.image == image) &&
-            (identical(other.rating, rating) || other.rating == rating));
+                other.category == category));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, title, price, description, category, image, rating);
+      runtimeType,
+      id,
+      title,
+      price,
+      description,
+      const DeepCollectionEquality().hash(_images),
+      creationAt,
+      updatedAt,
+      category);
 
   @JsonKey(ignore: true)
   @override
@@ -265,11 +301,12 @@ abstract class _ProductModel implements ProductModel {
   factory _ProductModel(
       {final int? id,
       final String? title,
-      final double? price,
+      final int? price,
       final String? description,
-      final String? category,
-      final String? image,
-      final RatingModel? rating}) = _$ProductModelImpl;
+      final List<String>? images,
+      final String? creationAt,
+      final String? updatedAt,
+      final CategoryModel? category}) = _$ProductModelImpl;
 
   factory _ProductModel.fromJson(Map<String, dynamic> json) =
       _$ProductModelImpl.fromJson;
@@ -279,15 +316,17 @@ abstract class _ProductModel implements ProductModel {
   @override
   String? get title;
   @override
-  double? get price;
+  int? get price;
   @override
   String? get description;
   @override
-  String? get category;
+  List<String>? get images;
   @override
-  String? get image;
+  String? get creationAt;
   @override
-  RatingModel? get rating;
+  String? get updatedAt;
+  @override
+  CategoryModel? get category;
   @override
   @JsonKey(ignore: true)
   _$$ProductModelImplCopyWith<_$ProductModelImpl> get copyWith =>

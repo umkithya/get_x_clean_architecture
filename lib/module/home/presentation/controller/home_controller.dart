@@ -6,8 +6,9 @@ import '../../data/model/product_model/product_model.dart';
 import '../../domain/usecases/get_product.dart';
 
 class HomeController extends GetxController
-    with StateMixin<List<ProductModel>> {
+    with StateMixin<List<ProductModel>>, GetSingleTickerProviderStateMixin {
   final GetProductUseCase _getHomeUseCase;
+  late TabController tabController;
   HomeController(this._getHomeUseCase);
 
   Future<void> getProducts({bool isRefresh = false}) async {
@@ -31,6 +32,7 @@ class HomeController extends GetxController
   @override
   void onInit() {
     super.onInit();
+    tabController = TabController(length: 3, vsync: this);
     getProducts();
   }
 

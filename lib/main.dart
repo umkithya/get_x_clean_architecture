@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp.router(
+      debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       theme: ThemeData(visualDensity: VisualDensity.adaptivePlatformDensity),
       builder: DevicePreview.appBuilder,

@@ -1,5 +1,5 @@
 class BaseUrl {
-  static String get dev => "https://fakestoreapi.com";
+  static String get dev => "https://api.escuelajs.co/api/v1";
   static String get pre => "https://pre.com";
   static String get pro => "https://pro.com";
   BaseUrl._();
