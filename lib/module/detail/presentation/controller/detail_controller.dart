@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:testproject/module/home/domain/entities/product.dart';
 import 'package:testproject/module/home/domain/usecases/get_product_detail.dart';
 
 import '../../../../utils/helper/state_manager/my_state_manager.dart';
 import '../../../home/data/model/params/product_params.dart';
-import '../../../home/data/model/product_model/product_model.dart';
 
 class DetailController extends GetxController
-    with StateMixin<ProductModel>, GoRouterStateMixin {
+    with StateMixin<Product>, GoRouterStateMixin {
   final GetProductDetailUseCase _getDetailUseCase;
   DetailController(this._getDetailUseCase);
 

@@ -15,8 +15,8 @@ class DetailBody extends GetView<DetailController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("${state?.id}"),
-              Text("${state?.title}"),
+              Text("${state?.product?.id}"),
+              Text("${state?.product?.id}"),
             ],
           ),
         ),

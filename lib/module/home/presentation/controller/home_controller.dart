@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:testproject/module/home/data/model/params/product_params.dart';
+import 'package:testproject/module/home/domain/entities/product.dart';
 
-import '../../data/model/product_model/product_model.dart';
 import '../../domain/usecases/get_product.dart';
 
 class HomeController extends GetxController
-    with StateMixin<List<ProductModel>>, GetSingleTickerProviderStateMixin {
+    with StateMixin<List<Product>>, GetSingleTickerProviderStateMixin {
   final GetProductUseCase _getHomeUseCase;
   late TabController tabController;
   HomeController(this._getHomeUseCase);
