@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
+import 'package:testproject/features/test/page/test_page.dart';
 
-import '../module/detail/presentation/binding/detail_binding.dart';
-import '../module/detail/presentation/page/detail_screen.dart';
-import '../module/home/presentation/binding/home_binding.dart';
-import '../module/home/presentation/view/home_screen.dart';
+import '../features/detail/presentation/binding/detail_binding.dart';
+import '../features/detail/presentation/page/detail_screen.dart';
+import '../features/home/presentation/binding/home_binding.dart';
+import '../features/home/presentation/view/home_screen.dart';
 
 final GoRouter router = GoRouter(
   navigatorKey: Get.key,
   initialLocation: '/',
   debugLogDiagnostics: true,
   routes: [
+    GoRoute(
+      path: '/test',
+      builder: (context, state) => const ProfilePage(),
+    ),
     GoRoute(
         path: '/',
         builder: (context, state) => HomeScreen(
