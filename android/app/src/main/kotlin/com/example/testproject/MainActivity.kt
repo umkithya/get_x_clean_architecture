@@ -1,4 +1,4 @@
-package com.example.testproject
+package com.kithya.getxproject
 
 import io.flutter.embedding.android.FlutterActivity
 

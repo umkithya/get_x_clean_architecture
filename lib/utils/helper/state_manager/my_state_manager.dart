@@ -18,6 +18,7 @@ abstract class BindingInjection<T extends GetxController> extends Widget {
     super.key,
     required this.binding,
   }) : assert(binding != null);
+  T get controller => GetInstance().find<T>();
   @protected
   Widget build(BuildContext context);
 
